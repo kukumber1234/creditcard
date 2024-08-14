@@ -1,8 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func valid(b[] string) {
+func valid(b []string) {
 	for i := 2; i < len(b); i++ {
 		if len(b[i]) < 13 {
 			fmt.Println("INCORRECT")
@@ -12,6 +14,16 @@ func valid(b[] string) {
 			} else {
 				fmt.Println("INCORRECT")
 			}
+		}
+	}
+}
+
+func gene(b []string) {
+	for i := 2; i < len(b); i++ {
+		if len(b[i]) < 13 {
+			fmt.Println("INCORRECT")
+		} else {
+			proverit(b[i]) 
 		}
 	}
 }

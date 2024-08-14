@@ -1,20 +1,29 @@
 package main
 
+import (
+	"os"
+	"math"
+)
+
 func check(b string) bool {
-	var c[] int
+	var c []int
 	var d int = 0
 	var e int
 	for i := 0; i < len(b); i++ {
 		if rune(b[i]) >= 48 && rune(b[i]) <= 57 {
-			c = append(c,int(b[i]) - 48)
+			c = append(c, int(b[i])-48)
 			// fmt.Println(c)
 		} else {
 			return false
 		}
 	}
+	if len(c)%2 != 0 {
+		d = c[0]
+		c = c[1:]
+	}
 	for i := 0; i < len(c); i++ {
-		if i % 2 == 0 {
-			if c[i] * 2 > 10 {
+		if i%2 == 0 {
+			if c[i]*2 > 10 {
 				d += 1
 				e = c[i] * 2 % 10
 				d += e
@@ -26,9 +35,39 @@ func check(b string) bool {
 		}
 	}
 	// fmt.Println(d)
-	if d % 10 == 0 {
-		return true
+	return d%10 == 0
+}
+
+func proverit(b string) {
+	var f []string
+	var g int = 0
+	for i := len(b) - 1; i >= 0; i-- {
+		if b[len(b)-1] == '*' {
+			if b[i] == '*' {
+				g++
+			}
+		} else {
+			os.Exit(1)
+		}
+		// if rune(b[i]) >= 48 && rune(b[i]) <= 57 {
+		// 	f = append(f, int(b[i]-48))
+		// } else {
+		// 	os.Exit(1)
+		// }
+	}
+	b = b[:len(b)-g]
+	for i := 0; i < len(b); i++ {
+		if rune(b[i]) >= 48 && rune(b[i]) <= 57 {
+			f = append(f, string(b[i]-48))
+		} else {
+			os.Exit(1)
+		}
+	}
+	if g <= 4 {
+		for i := 0; i < int(math.Pow(10, float64(g))); i++ {
+			
+		}
 	} else {
-		return false
+		os.Exit(1)
 	}
 }
