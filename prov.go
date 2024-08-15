@@ -3,6 +3,8 @@ package main
 import (
 	"os"
 	"math"
+	"fmt"
+	"strconv"
 )
 
 func check(b string) bool {
@@ -23,7 +25,7 @@ func check(b string) bool {
 	}
 	for i := 0; i < len(c); i++ {
 		if i%2 == 0 {
-			if c[i]*2 > 10 {
+			if c[i]*2 >= 10 {
 				d += 1
 				e = c[i] * 2 % 10
 				d += e
@@ -38,9 +40,12 @@ func check(b string) bool {
 	return d%10 == 0
 }
 
+
 func proverit(b string) {
-	var f []string
+	var f []int
 	var g int = 0
+	var kosu int = 0
+	var kobeit int = 0
 	for i := len(b) - 1; i >= 0; i-- {
 		if b[len(b)-1] == '*' {
 			if b[i] == '*' {
@@ -49,23 +54,26 @@ func proverit(b string) {
 		} else {
 			os.Exit(1)
 		}
-		// if rune(b[i]) >= 48 && rune(b[i]) <= 57 {
-		// 	f = append(f, int(b[i]-48))
-		// } else {
-		// 	os.Exit(1)
-		// }
 	}
 	b = b[:len(b)-g]
 	for i := 0; i < len(b); i++ {
 		if rune(b[i]) >= 48 && rune(b[i]) <= 57 {
-			f = append(f, string(b[i]-48))
+			f = append(f, int(b[i])-48)
 		} else {
 			os.Exit(1)
 		}
 	}
 	if g <= 4 {
+		for i := len(f)-1; i >= 0; i-- {
+			kosu += f[i] * int(math.Pow(10, float64(kobeit)))
+			kobeit++
+		}
+		kosu *= int(math.Pow(10, float64(g)))
 		for i := 0; i < int(math.Pow(10, float64(g))); i++ {
-			
+			kazirsan := kosu + i
+			if check(strconv.Itoa(kazirsan)) {
+				fmt.Println(kazirsan)
+			}
 		}
 	} else {
 		os.Exit(1)

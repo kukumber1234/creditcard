@@ -24,6 +24,8 @@ func main() {
 	if b[2] == "--stdin" {
 		*stdin = true
 		b = b[:2]
+	} else {
+		os.Exit(1)
 	}
 	if b[1] == "generate" {
 		generat = true
@@ -38,6 +40,16 @@ func main() {
 			b = append(b,number)
 		}
 		valid(b)
+	} else if generat && *stdin{
+		number := ""
+		for {
+			_, err := fmt.Fscan(os.Stdin, &number)
+			if err != nil {
+				break
+			}
+			b = append(b,number)
+		}
+		gene(b)
 	} else if val {
 		valid(b)
 	} else if generat {
