@@ -32,7 +32,7 @@ func gene(b []string) {
 			fmt.Fprintln(os.Stderr, "INCORRECT")
 			inc++
 		} else {
-			proverit(b[i]) 
+			proverit(b[i])
 		}
 	}
 	if inc >= 1 {
