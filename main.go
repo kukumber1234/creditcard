@@ -8,6 +8,7 @@ import (
 
 var (
 	stdin = flag.Bool("stdin", false, "da")
+	pick = flag.Bool("", false, "")
 )
 
 func main() {
@@ -20,6 +21,9 @@ func main() {
 	}
 	if b[1] == "validate" {
 		val = true
+	}
+	if b[2] == "--pick" {
+		*pick = true
 	}
 	if b[2] == "--stdin" {
 		*stdin = true
@@ -55,47 +59,3 @@ func main() {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 	if b[1] == "validate" && b[2] == "--stdin" {
-// 		*stdin = true
-// 	} else if b[1] == "validate" {
-// 		valid(b)
-// 	} else if b[1] == "generate" {
-		// gener(b)
-// 	} else {
-// 		fmt.Println("Incorrect imput")
-// 		os.Exit(1)
-// 	}
-// 	if *stdin {
-// 		number := ""
-// 		for {
-// 			_, err := fmt.Fscan(os.Stdin, &number)
-// 			if err != nil {
-// 				break
-// 			}
-// 			b = append(b,number)
-// 		}
-// 		valid(b)
-// 	} 
-// }

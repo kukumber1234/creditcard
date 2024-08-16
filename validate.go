@@ -26,16 +26,31 @@ func valid(b []string) {
 }
 
 func gene(b []string) {
-	var inc int = 0
-	for i := 2; i < len(b); i++ {
-		if len(b[i]) < 13 {
-			fmt.Fprintln(os.Stderr, "INCORRECT")
-			inc++
-		} else {
-			proverit(b[i])
+	if *pick {
+		var inc int = 0
+		for i := 3; i < len(b); i++ {
+			if len(b[i]) < 13 {
+				fmt.Fprintln(os.Stderr, "INCORRECT")
+				inc++
+			} else {
+				proverit(b[i])
+			}
 		}
-	}
-	if inc >= 1 {
-		os.Exit(1)
+		if inc >= 1 {
+			os.Exit(1)
+		}
+	} else {
+		var inc int = 0
+		for i := 2; i < len(b); i++ {
+			if len(b[i]) < 13 {
+				fmt.Fprintln(os.Stderr, "INCORRECT")
+				inc++
+			} else {
+				proverit(b[i])
+			}
+		}
+		if inc >= 1 {
+			os.Exit(1)
+		}
 	}
 }

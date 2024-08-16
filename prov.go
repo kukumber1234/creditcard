@@ -5,6 +5,7 @@ import (
 	"math"
 	"fmt"
 	"strconv"
+	"math/rand"
 )
 
 func check(b string) bool {
@@ -69,10 +70,21 @@ func proverit(b string) {
 			kobeit++
 		}
 		kosu *= int(math.Pow(10, float64(g)))
-		for i := 0; i < int(math.Pow(10, float64(g))); i++ {
-			kazirsan := kosu + i
-			if check(strconv.Itoa(kazirsan)) {
-				fmt.Println(kazirsan)
+		if *pick {
+			for i := 0; i < int(math.Pow(10, float64(g))); i++ {
+				random := rand.Intn(int(math.Pow(10, float64(g))))
+				kerek := kosu + random
+				if check(strconv.Itoa(kerek)) {
+					fmt.Println(kerek)
+					os.Exit(0)
+				}
+			}
+		} else {
+			for i := 0; i < int(math.Pow(10, float64(g))); i++ {
+				kazirsan := kosu + i
+				if check(strconv.Itoa(kazirsan)) {
+					fmt.Println(kazirsan)
+				}
 			}
 		}
 	} else {
