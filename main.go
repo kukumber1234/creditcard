@@ -9,15 +9,21 @@ import (
 var (
 	stdin = flag.Bool("stdin", false, "da")
 	pick = flag.Bool("", false, "")
+	brand = flag.Bool("", false, "")
+	issure = flag.Bool("", false, "")
 )
 
 func main() {
 	var b []string
 	var val bool = false
-	var generat = false
+	var generat bool = false
+	var info bool = false
 	b = append(b, os.Args...)
 	if len(b) < 3 {
 		os.Exit(1)
+	}
+	if b[1] == "information" {
+		info = true
 	}
 	if b[1] == "validate" {
 		val = true
@@ -56,6 +62,8 @@ func main() {
 		valid(b)
 	} else if generat {
 		gene(b)
+	} else if info {
+		informations(b)
 	}
 
 }
