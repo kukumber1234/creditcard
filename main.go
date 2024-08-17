@@ -1,16 +1,15 @@
 package main
 
 import (
-	"os"
 	"flag"
 	"fmt"
+	"os"
 )
 
 var (
-	stdin = flag.Bool("stdin", false, "da")
-	pick = flag.Bool("", false, "")
-	brand = flag.Bool("", false, "")
-	issure = flag.Bool("", false, "")
+	stdin  = flag.Bool("stdin", false, "read")
+	pick   = flag.Bool("pick", false, "choose")
+	brands = flag.Bool("brands", false, "its brand")
 )
 
 func main() {
@@ -34,7 +33,7 @@ func main() {
 	if b[2] == "--stdin" {
 		*stdin = true
 		b = b[:2]
-	} 
+	}
 	if b[1] == "generate" {
 		generat = true
 	}
@@ -45,7 +44,7 @@ func main() {
 			if err != nil {
 				break
 			}
-			b = append(b,number)
+			b = append(b, number)
 		}
 		valid(b)
 	} else if generat && *stdin {
@@ -55,7 +54,7 @@ func main() {
 			if err != nil {
 				break
 			}
-			b = append(b,number)
+			b = append(b, number)
 		}
 		gene(b)
 	} else if val {
@@ -64,6 +63,8 @@ func main() {
 		gene(b)
 	} else if info {
 		informations(b)
+	} else {
+		fmt.Println("Incorrect input")
+		os.Exit(1)
 	}
-
 }
