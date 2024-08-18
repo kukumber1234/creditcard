@@ -1,5 +1,4 @@
 Kaspi Gold:440043
-Forte Black:404243
 Forte Blue:517792
 Halyk Bonus:440563
 Jusan Pay:539545
@@ -62,11 +61,6 @@ American Express Platinum:371234
 American Express Business Gold:372345
 American Express Centurion:379876
 Discover it Cash Back:601122
-Discover it Miles:601233
-Discover it Student:601344
-Discover it Chrome:652345
-Discover it Secured:654321
-Discover it Student Cash Back:654987
 Discover it Cash Back:644123
 Discover it Miles:644456
 Discover it Secured:644789
@@ -94,7 +88,7 @@ JCB Rewards:352956
 CB Diamond:353012
 JCB Elite:353034
 JCB Business:353056
-CB Signature:353112
+JCB Signature:353112
 JCB Standard:353134
 JCB Corporate:353156
 JCB Platinum:353212
@@ -121,81 +115,40 @@ JCB Rewards:353856
 JCB Ultimate:353912
 JCB Signature:353934
 JCB Elite:353956
-Diners Club Classic: 300123
-Diners Club Rewards: 300456
-Diners Club Gold: 300789
-Diners Club Platinum: 301123
-Diners Club Elite: 301456
-Diners Club Business: 301789
-Diners Club Signature: 302123
-Diners Club Premium: 302456
-Diners Club Travel: 302789
-Diners Club Rewards: 303123
-Diners Club Ultimate: 303456
-Diners Club Classic: 303789
-Diners Club Gold: 304123
-Diners Club Platinum: 304456
-Diners Club Signature: 304789
-Diners Club Travel: 305123
-Diners Club Elite: 305456
-Diners Club Ultimate: 305789
-Diners Club Premium: 361234
-Diners Club Classic: 362345
-Diners Club Signature: 363456
-Diners Club Ultimate: 381234
-Diners Club Gold: 382345
-Diners Club Elite: 383456
-Carte Blanche Classic: 300567
-Carte Blanche Premium: 300678
-Carte Blanche Gold: 300789
-Carte Blanche Gold: 301567
-Carte Blanche Elite: 301678
-Carte Blanche Platinum: 301789
-Carte Blanche Platinum: 302567
-Carte Blanche Rewards: 302678
-Carte Blanche Premium: 302789
-Carte Blanche Elite: 303567
-Carte Blanche Classic: 303678
-Carte Blanche Gold: 303789
-Carte Blanche Premium: 304567
-Carte Blanche Rewards: 304678
-Carte Blanche Classic: 304789
-Carte Blanche Rewards: 305567
-Carte Blanche Elite: 305678
-Carte Blanche Platinum: 305789
-Elo Classic: 401112
-Elo Gold: 401223
-Elo Premium: 401334
-Elo Platinum: 431234
-Elo Rewards: 431345
-Elo Elite: 431456
-Elo Rewards: 438912
-Elo Premium: 438923
-Elo Classic: 438934
-Elo Elite: 451423
-Elo Gold: 451534
-Elo Platinum: 451645
-Elo Classic: 457612
-Elo Premium: 457623
-Elo Rewards: 457634
-Elo Gold: 507812
-Elo Classic: 507823
-Elo Platinum: 507834
-Elo Rewards: 650012
-Elo Elite: 650023
-Elo Classic: 650034
-InstaPayment Classic: 637123
-InstaPayment Gold: 637234
-InstaPayment Platinum: 637345
-InstaPayment Premium: 638123
-InstaPayment Rewards: 638234
-InstaPayment Elite: 638345
-InstaPayment Elite: 639123
-InstaPayment Platinum: 639234
-InstaPayment Gold: 639345
-InstaPayment Rewards: 640123
-InstaPayment Classic: 640234
-InstaPayment Premium: 640345
-InstaPayment Gold: 641123
-InstaPayment Elite: 641234
-InstaPayment Premium: 641345
+Diners Club Classic:300123
+Diners Club Rewards:300456
+Diners Club Gold:300789
+Diners Club Platinum:301123
+Diners Club Elite:301456
+Diners Club Business:301789
+Diners Club Premium:302456
+Diners Club Travel:302789
+Diners Club Rewards:303123
+Diners Club Ultimate:303456
+Diners Club Classic:303789
+Diners Club Gold:304123
+Diners Club Platinum:304456
+Diners Club Signature:304789
+Diners Club Travel:305123
+Diners Club Elite:305456
+Diners Club Ultimate:305789
+Diners Club Premium:361234
+Diners Club Classic:362345
+Diners Club Ultimate:381234
+Diners Club Gold:382345
+Diners Club Elite:383456
+InstaPayment Classic:637123
+InstaPayment Gold:637234
+InstaPayment Platinum:637345
+InstaPayment Premium:638123
+InstaPayment Rewards:638234
+InstaPayment Elite:638345
+InstaPayment Elite:639123
+InstaPayment Platinum:639234
+InstaPayment Gold:639345
+InstaPayment Rewards:640123
+InstaPayment Classic:640234
+InstaPayment Premium:640345
+InstaPayment Gold:641123
+InstaPayment Elite:641234
+InstaPayment Premium:641345

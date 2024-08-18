@@ -4,9 +4,20 @@ import (
 	"fmt"
 	"os"
 	"bufio"
+	// "math/rand"
 )
 
 func issu(b []string) {
+	var issuesankosu []string
+	var issuesan []string
+	var brandneshe int = 0
+	var issuerneshe int = 0
+	var issuerchtosandar string
+	var brandchtosandar string
+	var brandchtosandar1 string
+	var issuerchtosandar1 string
+	var brandsan []string
+	var issuersan string
 	var brandname string
 	var issuername string
 	var brandname1 string
@@ -14,7 +25,7 @@ func issu(b []string) {
 	var brandcost int = 0
 	var issuecost int = 0
 	btxt := "brands.txt"
-	// itxt := "issuers.txt"
+	itxt := "issuers.txt"
 	if b[2] == "--brands=brands.txt" && b[3] == "--issuers=issuers.txt" {
 		*brands = true
 		b = b[4:]
@@ -55,18 +66,67 @@ func issu(b []string) {
 			fmt.Fprintln(os.Stderr, "Missing '=' in",issuername)
 			os.Exit(1)
 		}
-		fmt.Println(brandname1)
-		fmt.Println(issuername1)
 		brandchto := ChitatFile2(btxt)
-		// issuerschto := ChitatFile2(itxt)
+		issuerschto := ChitatFile2(itxt)
 		for i := 0; i < len(brandchto); i++ {
-			if brandname == brandchto[i] {
-				fmt.Println("DA")
+			brandchtosandar = brandchto[i]
+			for j := 0; j < len(brandchtosandar); j++ {
+				if brandchtosandar[j] == ':' {
+					brandchtosandar1 = brandchtosandar[:j]
+					if brandchtosandar1 == brandname1 {
+						brandsan = append(brandsan, brandchtosandar[j+1:])
+						brandneshe++
+					}
+				}
+			}
+		}
+		for i := 0; i < len(issuerschto); i++ {
+			issuerchtosandar = issuerschto[i]
+			for j := 0; j < len(issuerchtosandar); j++ {
+				if issuerchtosandar[j] == ':' {
+					issuerchtosandar1 = issuerchtosandar[:j]
+					if issuerchtosandar1 == issuername1 {
+						issuersan = issuerchtosandar[j+1:]
+						issuerneshe++
+					}
+				}
+			}
+		}
+		if brandneshe <= 0 {
+			fmt.Fprintln(os.Stderr, "No such brand in brands.txt")
+			os.Exit(1)
+		}
+		if issuerneshe <= 0 {
+			fmt.Fprintln(os.Stderr, "No such issuer in issuers.txt")
+			os.Exit(1)
+		}
+		for i := 0; i < len(brandsan); i++ {
+			if brandsan[i] == issuersan[:len(brandsan[i])] {
+				issuesan = append(issuesan, issuersan)
 			} 
+		}
+		if len(issuesan) == 0 {
+			fmt.Fprintln(os.Stderr, "They are not suitable for each other")
+			os.Exit(1)
+		} else {
+			issuesankosu = issuesan
+			fmt.Println(issuesankosu)
+			if brandname1 == "MASTERCARD" || brandname1 == "DISCOVER" || brandname1 == "JCB" || brandname1 == "InstaPayment" {
+				for i := 0; i < 16 - len(issuesan); i++ {
+					issuesankosu = append(issuesankosu, "*")
+				}
+			} else if brandname1 == "AMEX" {
+				for i := 0; i < 15 - len(issuesan); i++ {
+					issuesankosu = append(issuesankosu, "*")
+				}
+			} else if brandname1 == "DinerdClubCarteBlanche" || brandname1 == "DinerdClubInternational" {
+				for i := 0; i < 14 - len(issuesan); i++ {
+					issuesankosu = append(issuesankosu, "*")
+				}
+			}
 		}
 	}
 }
-
 
 func ChitatFile2(filename string) []string {
 	f, _ := os.Open(filename)

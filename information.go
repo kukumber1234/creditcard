@@ -61,9 +61,6 @@ func brandfound(gg string, san string) {
 			}
 		}
 	}
-	if cardbrandnotsan == len(san[:len((sohr))]) {
-		fmt.Println("Card Brand: -")
-	}
 }
 
 func issuerfound(jj string, san string) {
@@ -78,8 +75,5 @@ func issuerfound(jj string, san string) {
 				issuernotsan++
 			}
 		}
-	}
-	if issuernotsan == len(san[:len(sohro)]) {
-		fmt.Println("Card Issuer: -")
 	}
 }
