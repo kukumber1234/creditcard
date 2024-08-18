@@ -145,24 +145,6 @@ Diners Club Signature: 363456
 Diners Club Ultimate: 381234
 Diners Club Gold: 382345
 Diners Club Elite: 383456
-UnionPay Classic: 621234
-UnionPay Gold: 621345
-UnionPay Platinum: 621456
-Maestro Classic: 501234
-Maestro Gold: 501345
-Maestro Platinum: 501456
-Maestro Standard: 561234
-Maestro Silver: 561345
-Maestro Premium: 561456
-Maestro Rewards: 571234
-Maestro Elite: 571345
-Maestro Platinum: 571456
-Maestro Platinum: 581234
-Maestro Classic: 581345
-Maestro Gold: 581456
-Maestro Premium: 612345
-Maestro Classic: 612456
-Maestro Rewards: 612567
 Carte Blanche Classic: 300567
 Carte Blanche Premium: 300678
 Carte Blanche Gold: 300789
@@ -202,18 +184,18 @@ Elo Platinum: 507834
 Elo Rewards: 650012
 Elo Elite: 650023
 Elo Classic: 650034
-Ruffer Classic: 637123
-Ruffer Gold: 637234
-Ruffer Platinum: 637345
-Ruffer Premium: 638123
-Ruffer Rewards: 638234
-Ruffer Elite: 638345
-Ruffer Elite: 639123
-Ruffer Platinum: 639234
-Ruffer Gold: 639345
-Ruffer Rewards: 640123
-Ruffer Classic: 640234
-Ruffer Premium: 640345
-Ruffer Gold: 641123
-Ruffer Elite: 641234
-Ruffer Premium: 641345
+InstaPayment Classic: 637123
+InstaPayment Gold: 637234
+InstaPayment Platinum: 637345
+InstaPayment Premium: 638123
+InstaPayment Rewards: 638234
+InstaPayment Elite: 638345
+InstaPayment Elite: 639123
+InstaPayment Platinum: 639234
+InstaPayment Gold: 639345
+InstaPayment Rewards: 640123
+InstaPayment Classic: 640234
+InstaPayment Premium: 640345
+InstaPayment Gold: 641123
+InstaPayment Elite: 641234
+InstaPayment Premium: 641345

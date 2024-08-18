@@ -17,12 +17,20 @@ func main() {
 	var val bool = false
 	var generat bool = false
 	var info bool = false
+	var issue bool = false
 	b = append(b, os.Args...)
 	if len(b) < 3 {
 		os.Exit(1)
 	}
+	if b[1] == "issue" {
+		issue = true
+	}
 	if b[1] == "information" {
 		info = true
+		if b[4] == "--stdin" {
+			*stdin = true
+			b = b[:4]
+		}
 	}
 	if b[1] == "validate" {
 		val = true
@@ -57,14 +65,26 @@ func main() {
 			b = append(b, number)
 		}
 		gene(b)
+	} else if info && *stdin {
+		number := ""
+		for {
+			_, err := fmt.Fscan(os.Stdin, &number)
+			if err != nil {
+				break
+			}
+			b = append(b, number)
+		}
+		informations(b)
 	} else if val {
 		valid(b)
 	} else if generat {
 		gene(b)
 	} else if info {
 		informations(b)
+	} else if issue {
+		issu(b)
 	} else {
-		fmt.Println("Incorrect input")
+		fmt.Fprintln(os.Stderr, "Incorrect input")
 		os.Exit(1)
 	}
 }

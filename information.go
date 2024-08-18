@@ -26,12 +26,13 @@ func informations(b []string) {
 				issuerfound(jj[i], san)
 			}
 		} else {
-			fmt.Println("Correct: no")
-			fmt.Println("Card Brand: -")
-			fmt.Println("Card Issuer: -")
+			fmt.Fprintln(os.Stderr, "Correct: no")
+			fmt.Fprintln(os.Stderr, "Card Brand: -")
+			fmt.Fprintln(os.Stderr, "Card Issuer: -")
+			os.Exit(1)
 		}
 	} else {
-		fmt.Println("Incorrect input")
+		fmt.Fprintln(os.Stderr, "Incorrect input")
 		os.Exit(1)
 	}
 }
@@ -49,24 +50,36 @@ func ChitatFile(filename string) []string {
 
 func brandfound(gg string, san string) {
 	var sohr string
+	var cardbrandnotsan int = 0
 	for i := 0; i < len(gg); i++ {
 		if gg[i] == ':' {
 			sohr = gg[i+1:]
 			if sohr == san[:len(sohr)] {
 				fmt.Println("Card Brand:", gg[:len(gg)-len(sohr)-1])
+			} else {
+				cardbrandnotsan++
 			}
 		}
+	}
+	if cardbrandnotsan == len(san[:len((sohr))]) {
+		fmt.Println("Card Brand: -")
 	}
 }
 
 func issuerfound(jj string, san string) {
 	var sohro string
+	var issuernotsan int = 0
 	for i := 0; i < len(jj); i++ {
 		if jj[i] == ':' {
 			sohro = jj[i+1:]
 			if sohro == san[:len(sohro)] {
 				fmt.Println("Card Issuer:", jj[:len(jj)-len(sohro)-1])
+			} else {
+				issuernotsan++
 			}
 		}
+	}
+	if issuernotsan == len(san[:len(sohro)]) {
+		fmt.Println("Card Issuer: -")
 	}
 }
