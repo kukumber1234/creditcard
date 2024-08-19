@@ -1,15 +1,15 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
-	"bufio"
 	// "math/rand"
 )
 
 func issu(b []string) {
-	var issuesankosu []string
-	var issuesan []string
+	var issuesankosu string
+	var issuesan string = ""
 	var brandneshe int = 0
 	var issuerneshe int = 0
 	var issuerchtosandar string
@@ -59,11 +59,11 @@ func issu(b []string) {
 			}
 		}
 		if brandcost == len(brandname) {
-			fmt.Fprintln(os.Stderr, "Missing '=' in",brandname)
+			fmt.Fprintln(os.Stderr, "Missing '=' in", brandname)
 			os.Exit(1)
 		}
 		if issuecost == len(issuername) {
-			fmt.Fprintln(os.Stderr, "Missing '=' in",issuername)
+			fmt.Fprintln(os.Stderr, "Missing '=' in", issuername)
 			os.Exit(1)
 		}
 		brandchto := ChitatFile2(btxt)
@@ -102,28 +102,28 @@ func issu(b []string) {
 		}
 		for i := 0; i < len(brandsan); i++ {
 			if brandsan[i] == issuersan[:len(brandsan[i])] {
-				issuesan = append(issuesan, issuersan)
-			} 
+				issuesan += issuersan
+			}
 		}
 		if len(issuesan) == 0 {
 			fmt.Fprintln(os.Stderr, "They are not suitable for each other")
 			os.Exit(1)
 		} else {
-			issuesankosu = issuesan
-			fmt.Println(issuesankosu)
+			issuesankosu += issuesan
 			if brandname1 == "MASTERCARD" || brandname1 == "DISCOVER" || brandname1 == "JCB" || brandname1 == "InstaPayment" {
-				for i := 0; i < 16 - len(issuesan); i++ {
-					issuesankosu = append(issuesankosu, "*")
+				for i := 0; i < 16-len(issuesan); i++ {
+					issuesankosu += "*"
 				}
 			} else if brandname1 == "AMEX" {
-				for i := 0; i < 15 - len(issuesan); i++ {
-					issuesankosu = append(issuesankosu, "*")
+				for i := 0; i < 15-len(issuesan); i++ {
+					issuesankosu += "*"
 				}
 			} else if brandname1 == "DinerdClubCarteBlanche" || brandname1 == "DinerdClubInternational" {
-				for i := 0; i < 14 - len(issuesan); i++ {
-					issuesankosu = append(issuesankosu, "*")
+				for i := 0; i < 14-len(issuesan); i++ {
+					issuesankosu += "*"
 				}
 			}
+			issue_generate(issuesankosu)
 		}
 	}
 }

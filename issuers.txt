@@ -126,7 +126,6 @@ Diners Club Travel:302789
 Diners Club Rewards:303123
 Diners Club Ultimate:303456
 Diners Club Classic:303789
-Diners Club Gold:304123
 Diners Club Platinum:304456
 Diners Club Signature:304789
 Diners Club Travel:305123
@@ -135,7 +134,6 @@ Diners Club Ultimate:305789
 Diners Club Premium:361234
 Diners Club Classic:362345
 Diners Club Ultimate:381234
-Diners Club Gold:382345
 Diners Club Elite:383456
 InstaPayment Classic:637123
 InstaPayment Gold:637234

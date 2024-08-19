@@ -27,6 +27,10 @@ func main() {
 	}
 	if b[1] == "information" {
 		info = true
+		if len(b) <= 4 {
+			fmt.Fprintln(os.Stderr, "Incorrect input")
+			os.Exit(1)
+		}
 		if b[4] == "--stdin" {
 			*stdin = true
 			b = b[:4]

@@ -1,11 +1,11 @@
 package main
 
 import (
-	"os"
-	"math"
 	"fmt"
-	"strconv"
+	"math"
 	"math/rand"
+	"os"
+	"strconv"
 )
 
 func check(b string) bool {
@@ -41,7 +41,6 @@ func check(b string) bool {
 	return d%10 == 0
 }
 
-
 func proverit(b string) {
 	var f []int
 	var g int = 0
@@ -65,7 +64,7 @@ func proverit(b string) {
 		}
 	}
 	if g <= 4 {
-		for i := len(f)-1; i >= 0; i-- {
+		for i := len(f) - 1; i >= 0; i-- {
 			kosu += f[i] * int(math.Pow(10, float64(kobeit)))
 			kobeit++
 		}
@@ -92,3 +91,36 @@ func proverit(b string) {
 	}
 }
 
+func issue_generate(issuesankosu string) {
+	var zvezdakosu int = 0
+	var issuesankosu1 []string
+	var randomsanstring string
+	var stringmassiv string
+	var dopstringmassiv string
+	for i := 0; i < len(issuesankosu); i++ {
+		if issuesankosu[i] == '*' {
+			zvezdakosu++
+		}
+	}
+	for i := len(issuesankosu)-1; i >= 0; i-- {
+		if issuesankosu[i] != '*' {
+			stringmassiv = issuesankosu[:i+1]
+			dopstringmassiv = issuesankosu[:i+1]
+			break
+		}
+	}
+	for i := 0; i < int(math.Pow(10, 3)); i++ {
+		randomsan := rand.Intn(int(math.Pow(10, float64(zvezdakosu))))
+		randomsanstring = strconv.Itoa(randomsan)
+		issuesankosu1 = append(issuesankosu1, randomsanstring)
+	}
+	for j := 0; j < len(issuesankosu1); j++ {
+		stringmassiv += issuesankosu1[j]
+		if check(stringmassiv) {
+			fmt.Println(stringmassiv)
+			os.Exit(0)
+		} else {
+			stringmassiv = dopstringmassiv
+		}
+	}
+}
