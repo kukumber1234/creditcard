@@ -51,7 +51,6 @@ American Express Blue:533456
 Citi Cash Back:542345
 HSBC Premier:545678
 Barclays Rewards:547890
-Discover it Miles:552345
 Chase Slate:553456
 Capital One Mastercard:554321
 American Express Gold:341234
@@ -60,25 +59,10 @@ American Express Blue Cash:349876
 American Express Platinum:371234
 American Express Business Gold:372345
 American Express Centurion:379876
-Discover it Cash Back:601122
-Discover it Cash Back:644123
 Discover it Miles:644456
 Discover it Secured:644789
 Discover it Student:645123
 Discover it Cash Back:645456
-Discover it Miles:645789
-Discover it Student Cash Back:646123
-Discover it Miles:646456
-Discover it Cash Back:646789
-Discover it Secured:647123
-Discover it Student:647456
-Discover it Cash Back:647789
-Discover it Cash Back:648123
-Discover it Miles:648456
-Discover it Student:648789
-Discover it Secured:649123
-Discover it Miles:649456
-Discover it Cash Back:649789
 JCB Classic:352812
 JCB Platinum:352834
 JCB Gold:352856
@@ -91,30 +75,14 @@ JCB Business:353056
 JCB Signature:353112
 JCB Standard:353134
 JCB Corporate:353156
-JCB Platinum:353212
-JCB Gold:353234
-JCB Classic:353256
 JCB Ultimate:353312
-JCB Rewards:353334
-JCB Business:353356
 JCB Premium:353412
-JCB Standard:353434
-JCB Elite:353456
-JCB Signature:353512
 JCB Classic:353534
 JCB Platinum:353556
-JCB Business:353612
 JCB Rewards:353634
 JCB Elite:353656
 JCB Gold:353712
 JCB Premier:353734
-JCB Classic:353756
-JCB Platinum:353812
-JCB Standard:353834
-JCB Rewards:353856
-JCB Ultimate:353912
-JCB Signature:353934
-JCB Elite:353956
 Diners Club Classic:300123
 Diners Club Rewards:300456
 Diners Club Gold:300789
@@ -123,17 +91,8 @@ Diners Club Elite:301456
 Diners Club Business:301789
 Diners Club Premium:302456
 Diners Club Travel:302789
-Diners Club Rewards:303123
 Diners Club Ultimate:303456
-Diners Club Classic:303789
-Diners Club Platinum:304456
 Diners Club Signature:304789
-Diners Club Travel:305123
-Diners Club Elite:305456
-Diners Club Ultimate:305789
-Diners Club Premium:361234
-Diners Club Classic:362345
-Diners Club Ultimate:381234
 Diners Club Elite:383456
 InstaPayment Classic:637123
 InstaPayment Gold:637234
@@ -141,12 +100,3 @@ InstaPayment Platinum:637345
 InstaPayment Premium:638123
 InstaPayment Rewards:638234
 InstaPayment Elite:638345
-InstaPayment Elite:639123
-InstaPayment Platinum:639234
-InstaPayment Gold:639345
-InstaPayment Rewards:640123
-InstaPayment Classic:640234
-InstaPayment Premium:640345
-InstaPayment Gold:641123
-InstaPayment Elite:641234
-InstaPayment Premium:641345

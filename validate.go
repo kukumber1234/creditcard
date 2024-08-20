@@ -7,6 +7,10 @@ import (
 
 func valid(b []string) {
 	var incorr int = 0
+	if len(b) <= 2 {
+		fmt.Fprintln(os.Stderr, "Data is empty")
+		os.Exit(1)
+	}
 	for i := 2; i < len(b); i++ {
 		if len(b[i]) < 13 {
 			fmt.Fprintln(os.Stderr, "INCORRECT")

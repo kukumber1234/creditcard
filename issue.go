@@ -3,8 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
-	// "math/rand"
 )
 
 func issu(b []string) {
@@ -24,9 +24,25 @@ func issu(b []string) {
 	var issuername1 string
 	var brandcost int = 0
 	var issuecost int = 0
-	btxt := "brands.txt"
-	itxt := "issuers.txt"
-	if b[2] == "--brands=brands.txt" && b[3] == "--issuers=issuers.txt" {
+	var btxt string
+	var itxt string
+	var minus2 string
+	var minus3 string
+	brandOrIssuer2 := b[2]
+	brandOrIssuer3 := b[3]
+	for i := 0; i < len(b[2]); i++ {
+		if brandOrIssuer2[i] == '=' {
+			btxt = brandOrIssuer2[i+1:]
+			minus2 = brandOrIssuer2[:i+1]
+		}
+	}
+	for i := 0; i < len(b[3]); i++ {
+		if brandOrIssuer3[i] == '=' {
+			itxt = brandOrIssuer3[i+1:]
+			minus3 = brandOrIssuer3[:i+1]
+		}
+	}
+	if (len(b) >= 2 && minus2 == "--brands=" && minus3 == "--issuers=") || (len(b) >= 2 && minus3 == "--brands=" && minus2 == "--issuers=") {
 		*brands = true
 		b = b[4:]
 	} else {
@@ -120,6 +136,13 @@ func issu(b []string) {
 				}
 			} else if brandname1 == "DinerdClubCarteBlanche" || brandname1 == "DinerdClubInternational" {
 				for i := 0; i < 14-len(issuesan); i++ {
+					issuesankosu += "*"
+				}
+			} else if brandname1 == "VISA" {
+				min := 13
+				max := 16
+				Visa := rand.Intn(max-min+1) + min
+				for i := 0; i < Visa-len(issuesan); i++ {
 					issuesankosu += "*"
 				}
 			}

@@ -10,44 +10,54 @@ var (
 	stdin  = flag.Bool("stdin", false, "read")
 	pick   = flag.Bool("pick", false, "choose")
 	brands = flag.Bool("brands", false, "its brand")
+	cardbrandnotsan = flag.Int("Not brand", 0, "Count")
+	issuernotsan = flag.Int("Not issuer", 0, "Count")
 )
 
 func main() {
-	var b []string
-	var val bool = false
-	var generat bool = false
-	var info bool = false
-	var issue bool = false
-	b = append(b, os.Args...)
-	if len(b) < 3 {
+	var b []string 
+	var val bool = false 
+	var generat bool = false 
+	var info bool = false 
+	var issue bool = false 
+	b = append(b, os.Args...) 
+	if len(b) < 3 { 
 		os.Exit(1)
 	}
-	if b[1] == "issue" {
+	if b[1] == "issue" { 
 		issue = true
 	}
-	if b[1] == "information" {
+	if b[1] == "information" { 
 		info = true
-		if len(b) <= 4 {
+		if len(b) <= 4 { 
 			fmt.Fprintln(os.Stderr, "Incorrect input")
 			os.Exit(1)
 		}
-		if b[4] == "--stdin" {
+		if b[4] == "--stdin" { 
 			*stdin = true
 			b = b[:4]
 		}
 	}
-	if b[1] == "validate" {
+	if b[1] == "validate" { 
 		val = true
 	}
 	if b[2] == "--pick" {
 		*pick = true
+		if val {
+			fmt.Fprintln(os.Stderr, "Incorrect input")
+			os.Exit(1)
+		}
 	}
 	if b[2] == "--stdin" {
 		*stdin = true
 		b = b[:2]
 	}
-	if b[1] == "generate" {
+	if b[1] == "generate" { 
 		generat = true
+		if *stdin {
+			fmt.Fprintln(os.Stderr, "Incorrect input")
+			os.Exit(1)
+		}
 	}
 	if val && *stdin {
 		number := ""
@@ -59,16 +69,6 @@ func main() {
 			b = append(b, number)
 		}
 		valid(b)
-	} else if generat && *stdin {
-		number := ""
-		for {
-			_, err := fmt.Fscan(os.Stdin, &number)
-			if err != nil {
-				break
-			}
-			b = append(b, number)
-		}
-		gene(b)
 	} else if info && *stdin {
 		number := ""
 		for {

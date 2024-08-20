@@ -55,6 +55,7 @@ func proverit(b string) {
 			os.Exit(1)
 		}
 	}
+
 	b = b[:len(b)-g]
 	for i := 0; i < len(b); i++ {
 		if rune(b[i]) >= 48 && rune(b[i]) <= 57 {
@@ -91,36 +92,36 @@ func proverit(b string) {
 	}
 }
 
-func issue_generate(issuesankosu string) {
-	var zvezdakosu int = 0
-	var issuesankosu1 []string
-	var randomsanstring string
-	var stringmassiv string
-	var dopstringmassiv string
-	for i := 0; i < len(issuesankosu); i++ {
-		if issuesankosu[i] == '*' {
-			zvezdakosu++
+func issue_generate(issueNumberAdd string) {
+	var asteriskAdd int = 0
+	var issueCountAdd []string
+	var randomNumberString string
+	var stringArray string
+	var additionalStringArray string
+	for i := 0; i < len(issueNumberAdd); i++ {
+		if issueNumberAdd[i] == '*' {
+			asteriskAdd++
 		}
 	}
-	for i := len(issuesankosu)-1; i >= 0; i-- {
-		if issuesankosu[i] != '*' {
-			stringmassiv = issuesankosu[:i+1]
-			dopstringmassiv = issuesankosu[:i+1]
+	for i := len(issueNumberAdd)-1; i >= 0; i-- {
+		if issueNumberAdd[i] != '*' {
+			stringArray = issueNumberAdd[:i+1]
+			additionalStringArray = issueNumberAdd[:i+1]
 			break
 		}
 	}
 	for i := 0; i < int(math.Pow(10, 3)); i++ {
-		randomsan := rand.Intn(int(math.Pow(10, float64(zvezdakosu))))
-		randomsanstring = strconv.Itoa(randomsan)
-		issuesankosu1 = append(issuesankosu1, randomsanstring)
+		randomsan := rand.Intn(int(math.Pow(10, float64(asteriskAdd))))
+		randomNumberString = strconv.Itoa(randomsan)
+		issueCountAdd = append(issueCountAdd, randomNumberString)
 	}
-	for j := 0; j < len(issuesankosu1); j++ {
-		stringmassiv += issuesankosu1[j]
-		if check(stringmassiv) {
-			fmt.Println(stringmassiv)
+	for j := 0; j < len(issueCountAdd); j++ {
+		stringArray += issueCountAdd[j]
+		if check(stringArray) {
+			fmt.Println(stringArray)
 			os.Exit(0)
 		} else {
-			stringmassiv = dopstringmassiv
+			stringArray = additionalStringArray
 		}
 	}
 }
