@@ -103,7 +103,7 @@ func issue_generate(issueNumberAdd string) {
 			asteriskAdd++
 		}
 	}
-	for i := len(issueNumberAdd)-1; i >= 0; i-- {
+	for i := len(issueNumberAdd) - 1; i >= 0; i-- {
 		if issueNumberAdd[i] != '*' {
 			stringArray = issueNumberAdd[:i+1]
 			additionalStringArray = issueNumberAdd[:i+1]
