@@ -29,29 +29,34 @@ func informations(b []string) {
 		*brands = true
 	}
 	if *brands {
-		san := b[4]
-		fmt.Println(san)
-		if check(san) {
-			fmt.Println("Correct: yes")
-			gg := ChitatFile(brandsname)
-			jj := ChitatFile(issuersname)
-			for i := 0; i < len(gg); i++ {
-				brandfound(gg[i], san)
+		for i := 4; i < len(b); i++ {
+			san := b[i]
+			if i > 4 {
+				fmt.Println()
 			}
-			for i := 0; i < len(jj); i++ {
-				issuerfound(jj[i], san)
-			}
-			if *cardbrandnotsan == len(gg) {
+			fmt.Println(san)
+			if check(san) {
+				fmt.Println("Correct: yes")
+				gg := ChitatFile(brandsname)
+				jj := ChitatFile(issuersname)
+				for j := 0; j < len(gg); j++ {
+					brandfound(gg[j], san)
+				}
+				for k := 0; k < len(jj); k++ {
+					issuerfound(jj[k], san)
+				}
+				if *cardbrandnotsan == len(gg) {
+					fmt.Println("Card Brand: -")
+				}
+				if *issuernotsan == len(jj) {
+					fmt.Println("Card Issuer: -")
+				}
+			} else {
+				fmt.Fprintln(os.Stderr, "Correct: no")
 				fmt.Fprintln(os.Stderr, "Card Brand: -")
-			}
-			if *issuernotsan == len(jj) {
 				fmt.Fprintln(os.Stderr, "Card Issuer: -")
+				os.Exit(1)
 			}
-		} else {
-			fmt.Fprintln(os.Stderr, "Correct: no")
-			fmt.Fprintln(os.Stderr, "Card Brand: -")
-			fmt.Fprintln(os.Stderr, "Card Issuer: -")
-			os.Exit(1)
 		}
 	} else {
 		fmt.Fprintln(os.Stderr, "Incorrect input")
