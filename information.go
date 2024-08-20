@@ -45,7 +45,7 @@ func informations(b []string) {
 				fmt.Fprintln(os.Stderr, "Card Brand: -")
 			}
 			if *issuernotsan == len(jj) {
-				fmt.Fprintln(os.Stderr, "Card Brand: -")
+				fmt.Fprintln(os.Stderr, "Card Issuer: -")
 			}
 		} else {
 			fmt.Fprintln(os.Stderr, "Correct: no")
