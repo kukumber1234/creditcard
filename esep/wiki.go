@@ -36,6 +36,10 @@ func main() {
 		return
 	}
 
+	if *dir != "data" {
+		helpe.CheckDir(*dir)
+	}
+
 	portNum := ":" + *port
 
 	var dirName string
@@ -66,7 +70,21 @@ func main() {
 // }
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
-	title := r.URL.Path[len(*dir)+2:]
+	var code int
+	status := r.URL.Query().Get("code")
+	if status == "" {
+		code = http.StatusOK
+	} else {
+		fmt.Sscanf(status, "%d", &code)
+	}
+	w.WriteHeader(code)
+	fmt.Fprintf(w, "Status code: %d OK\n", code)
+
+	// fmt.Println(r.Method)
+
+	// title := r.URL.Path[len(*dir)+2:]
+
+	// folderName := *dir
 
 	// profile := Profile{"Adil", []string{"programming", "listen music"}}
 
@@ -81,11 +99,17 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 	// fmt.Println(title)
 
-	// err1 := os.Mkdir("kinder", 0o755)
-	// if err1 != nil {
-	// 	fmt.Println("Error creating file", err1)
-	// 	os.Exit(1)
-	// }
+	err1 := os.MkdirAll(*dir, 0o755)
+	if err1 != nil {
+		if os.IsExist(err1) {
+			fmt.Fprintf(w, "Folder already exists\n")
+			return
+		} else {
+			fmt.Fprintf(w, "Error creating folder: %v\n", err1)
+		}
+	}
+
+
 
 	// resp, err := http.Get("http://localhost:" + *port + "/" + *dir + "/")
 	// if err != nil {
@@ -94,12 +118,12 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 	// }
 	// fmt.Println(resp)
 
-	p := loadPage(title)
-	fmt.Fprintf(w, "<h1>%s</h1>This is just the beginning<div>%s</div>", p.Title, p.Body)
+	// p := loadPage(title)
+	// fmt.Fprintln(w, "This is just the beginning", p.Title, p.Body)
 }
 
 func loadPage(title string) *Page {
-	filename := title + ".txt"
+	filename := title + ".csv"
 	body, _ := os.ReadFile(filename) // ReadFile reads the named file and returns the contents.
 	// fmt.Println(body)
 	return &Page{Title: title, Body: body}
