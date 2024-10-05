@@ -60,10 +60,8 @@ func CheckDir(dir string) {
 		}
 
 		if !checer {
-			// fmt.Fprintln(os.Stderr, "Only lowercase letters (a-z), numbers (0-9), hyphnes (-), and dots (.) are allowwed")
-			// os.Exit(1)
-
-			
+			fmt.Fprintln(os.Stderr, "Only lowercase letters (a-z), numbers (0-9), hyphnes (-), and dots (.) are allowwed")
+			os.Exit(1)
 		}
 	}
 

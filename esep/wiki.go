@@ -71,6 +71,21 @@ func main() {
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
 	var code int
+
+	fmt.Println(r.Method)
+	switch r.Method{
+	case "PUT":
+
+	case "GET":
+
+	case "DELETE":
+
+	default:
+		fmt.Fprintln(os.Stderr, "No such method")
+		
+		os.Exit(1)
+	}
+
 	status := r.URL.Query().Get("code")
 	if status == "" {
 		code = http.StatusOK
@@ -79,8 +94,6 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.WriteHeader(code)
 	fmt.Fprintf(w, "Status code: %d OK\n", code)
-
-	// fmt.Println(r.Method)
 
 	// title := r.URL.Path[len(*dir)+2:]
 
