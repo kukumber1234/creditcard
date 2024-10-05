@@ -36,9 +36,7 @@ func main() {
 		return
 	}
 
-	if *dir != "data" {
-		helpe.CheckDir(*dir)
-	}
+	helpe.CheckDir(*dir)
 
 	portNum := ":" + *port
 
@@ -82,7 +80,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 	default:
 		fmt.Fprintln(os.Stderr, "No such method")
-		
+
 		os.Exit(1)
 	}
 
