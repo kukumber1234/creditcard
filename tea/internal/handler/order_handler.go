@@ -13,18 +13,20 @@ import (
 
 func PostOrders(w http.ResponseWriter, r *http.Request) {
 	var order models.Order
-	file, _ := io.ReadAll(r.Body)
 
 	handler := slog.NewJSONHandler(os.Stdout, nil)
 	logger := slog.New(handler)
-	logger.Error("Error reding file in: ")
+	file, err := io.ReadAll(r.Body)
+	if err != nil {
+		logger.Error("Error reding file in: order_handler.go -> PostOrders")
+	}
 
 	json.Unmarshal(file, &order)
 	service.PostOrder(order)
 }
 
 func GetOrders(w http.ResponseWriter, r *http.Request) {
-	file, _ := os.Open("../data/files.json")
+	file, _ := os.Open(*models.Dir + "/files.json")
 	defer file.Close()
 	data, _ := io.ReadAll(file)
 	service.GetOrder(data, w)

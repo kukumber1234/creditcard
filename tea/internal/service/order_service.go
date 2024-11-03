@@ -1,23 +1,21 @@
 package service
 
 import (
-	"encoding/json"
-	"log"
 	"net/http"
-	"os"
 
+	dal "tea/internal/dal"
 	"tea/models"
 )
 
 func PostOrder(order models.Order) {
-	writeJson, _ := json.MarshalIndent(order, "", "\t")
-	err := os.WriteFile("../data/files.json", writeJson, 0o644)
-	if err != nil {
-		log.Fatalf("Error writing json file: %v", err)
-	}
+	//logic will be here
+	
+	dal.OrderPost(order) //after check go to bucket dal
 }
 
 func GetOrder(data []byte, w http.ResponseWriter) {
+	// logic
+	
 	w.Header().Set("Content-type", "application/json")
 	w.Write(data)
 }
